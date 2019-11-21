@@ -7,17 +7,17 @@ process.env.NODE_ENV = "development";
 module.exports = {
   mode: "development",
   target: "web",
-  devtool: "cheap-module-source-map", // see the original code
+  devtool: "cheap-module-source-map",
   entry: "./src/index",
   output: {
-    path: path.resolve(__dirname, "build"), // know where it's serving from memory
+    path: path.resolve(__dirname, "build"),
     publicPath: "/",
     filename: "bundle.js"
   },
   devServer: {
     stats: "minimal",
     overlay: true,
-    historyApiFallback: true, // all requests sent to index.html so dealt by react router
+    historyApiFallback: true,
     disableHostCheck: true,
     headers: { "Access-Control-Allow-Origin": "*" },
     https: false
@@ -31,9 +31,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/, // look for either JS or JSX files and ignore node modules
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use: ["babel-loader", "eslint-loader"] // run bable on the files that are found
+        use: ["babel-loader", "eslint-loader"]
       },
       {
         test: /(\.css)$/,
